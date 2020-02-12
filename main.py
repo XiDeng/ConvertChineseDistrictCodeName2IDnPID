@@ -12,7 +12,6 @@ def main():
         lines = origin.readlines()  # 读文件到lines
         provinces = {}  # 定义省字典
         cities = {}  # 定义市字典
-        # directCities = {} # 定义直辖市字典
         districts = {}  # 定义区字典
         for line in lines:  # 对lines循环，将省市区分开
             sp = line.split("\t")
@@ -32,7 +31,6 @@ def main():
         province_id = 1
         city_id = 1
         district_id = 1
-        # with open("./result.txt", "w", encoding="utf8") as r:
         for province in provinces:  # 循环省，将省输出。
             current_id = str(province_id)
             current_pid = -1
