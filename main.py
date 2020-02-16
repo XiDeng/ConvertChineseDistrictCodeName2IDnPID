@@ -31,6 +31,13 @@ def main():
         province_id = 1
         city_id = 1
         district_id = 1
+        for province in provinces:
+            count = 0
+            for city in cities:
+                if city[:2] == province[:2]:
+                    count += 1
+            if count == 0:
+                cities[provinces[province]] = provinces[province]
         for province in provinces:  # 循环省，将省输出。
             current_id = str(province_id)
             current_pid = -1
@@ -50,7 +57,7 @@ def main():
                             district_id += 1
                     city_id += 1
             if province_cities_count == 0:  # 如果是直辖市 再输出一个市字段
-                current_id = str(city_id + +len(provinces))
+                current_id = str(city_id + len(provinces))
                 current_pid = str(province_id)
                 write2file(current_id, provinces[province], current_pid, province)
                 for district in districts:  # 循环区 将符合当前直辖市的区输出
